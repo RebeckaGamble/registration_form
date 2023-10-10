@@ -1,0 +1,652 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  display: grid;
+  grid-template-areas:
+    "top top top"
+    "content content content"
+    "footer footer footer";
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 120px auto 300px;
+  min-height: 100vh;
+}
+
+.header {
+  grid-area: top;
+  padding-top: 28px;
+  display: flex;
+  position: relative;
+  border-bottom: 2px solid black;
+  box-shadow: 2px 2px 4px;
+  background-color: rgba(00, 00, 00, 0.1);
+}
+
+.title {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  font-size: 44px;
+  position: absolute;
+}
+
+.openNewMemberBtn {
+  height: auto;
+  width: auto;
+  border: none;
+  background-color: white;
+  border: 1px solid black;
+  text-transform: uppercase;
+  font-size: 16px;
+  border-radius: 16px;
+  position: absolute;
+  right: 12px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  padding: 8px 18px 6px 18px;
+  box-shadow: 1px 2px 2px;
+}
+
+.openNewMemberBtn:hover {
+  background-color: black;
+  border: unset;
+  color: white;
+  box-shadow: 1px 2px 4px yellowgreen;
+}
+
+#newMemberMenu {
+  display: none;
+  margin-bottom: 12px;
+  z-index: 10;
+}
+
+.contentSection {
+  grid-area: content;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+/*form content*/
+.formContent {
+  grid-area: content;
+  top: 8px;
+  background-color: #faf9f8;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  overflow: auto;
+  padding: 24px 0px 32px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  /*z-index: 1;*/
+}
+
+.userFormHeader {
+  padding: 0 32px;
+  margin-bottom: 16px;
+  position: relative;
+  display: block;
+}
+
+.userFormTitle {
+  padding: 0 24px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+  margin: 0;
+}
+
+.closeMenuBtn {
+  min-width: 48px;
+  min-height: 48px;
+  display: inline-flex;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  top: -12px;
+  right: 12px;
+  position: absolute;
+  margin-inline-end: 8px;
+  margin: 0;
+  font-size: 32px;
+  justify-content: center;
+  align-items: center;
+}
+
+.closeModSvg {
+  width: 24px;
+  height: 24px;
+  margin-inline-end: 8px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/*the form*/
+.userFormContent {
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
+.userFormText {
+  letter-spacing: 0;
+  line-height: 16px;
+  padding-top: 16px;
+  margin-bottom: 32px;
+  text-align: center;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+
+/*form fill in*/
+.userForm {
+  box-sizing: border-box;
+}
+
+#blurBackground {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  z-index: 2;
+}
+
+.mail {
+  margin-bottom: 16px;
+}
+
+.formLabel {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.label {
+  display: block;
+  margin: 0 0 4px;
+  font-size: 13px;
+}
+
+/*required star*/
+.labelReq::after {
+  content: " *";
+  color: red;
+}
+
+.formInputBox {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  line-height: 1.25;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: none;
+  border-radius: 0;
+  border: 1px solid #d0d0d0;
+  box-sizing: border-box;
+  padding: 8px;
+  width: 100%;
+  height: 48px;
+}
+
+/*btn*/
+.formInputBtn {
+  position: absolute;
+  right: 8px;
+  top: 40%;
+  transform: translateY(-50%);
+  background: none;
+  border: 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0;
+}
+
+.btnText {
+  font-weight: 400;
+  line-height: 1.2308;
+}
+
+.passwordReq {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 8px;
+}
+
+.passSpan {
+  display: flex;
+  align-items: center;
+  color: #707070;
+  font-size: 13px;
+}
+
+/*remove the eye from input password*/
+input::-ms-reveal {
+  display: none;
+}
+
+/*born*/
+.dateOfBirth {
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #d0d0d0;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  padding-right: 8px;
+}
+
+.inputSmall {
+  border: 0;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 33%;
+}
+
+/*fav department*/
+.departmentContainer {
+  margin: 18px 0;
+  font-size: 13px;
+}
+
+.department {
+  display: flex;
+  flex-direction: row;
+  margin: 12px;
+}
+
+.departmentText {
+  padding: 0 0 4px 0;
+}
+
+.departmentSpan {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.departemntContent {
+  padding: 0 0 4px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.option {
+  padding-right: 14px;
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+}
+
+.departmentInput {
+  padding-left: 4px;
+}
+
+textarea {
+  width: 100%;
+  padding: 8px;
+}
+
+/*select*/
+.openMenuBtn {
+  padding: 16px 24px;
+  width: 100%;
+  display: flex;
+  border: 0;
+  align-items: center;
+  height: 56px;
+  position: relative;
+  background-color: #fff;
+}
+
+.openMenuBtnContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.openMenuBtnSpan {
+  display: flex;
+  flex-grow: 1;
+  text-align: left;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.openSvg {
+  height: 24px;
+  flex-shrink: 0;
+  width: 24px;
+}
+
+.formSelectBox {
+  position: relative;
+  width: 100%;
+}
+
+.formSelect {
+  color: #707070;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: none;
+  /* appearance: none;*/
+  background-color: #fff;
+  border-radius: 0;
+  border: 1px solid #d0d0d0;
+  height: 46px;
+  width: 100%;
+  padding: 0 34px 0 8px;
+}
+
+.selectSvg {
+  fill: #222;
+  height: 26px;
+  pointer-events: none;
+  position: absolute;
+  right: 4px;
+  top: calc(50% - 13px);
+  width: 26px;
+}
+
+/*extra menu*/
+.extraMenu {
+  background-color: #fff;
+  display: block;
+  height: auto;
+  opacity: 1;
+}
+
+#extraMenuHidden {
+  display: none;
+}
+
+.extraMenuContent {
+  padding: 0 24px 16px;
+}
+
+.extraMenuText {
+  padding: 24px 0;
+  font-size: 13px;
+}
+
+/*phone nr*/
+.phoneNrContent {
+  background-color: #fff;
+}
+
+.phoneInput {
+  border: 1px solid #d0d0d0;
+  box-sizing: border-box;
+  height: 48px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.phoneSelectOne {
+  border-right: 1px solid #d0d0d0;
+  margin: 0;
+  padding-right: 8px;
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.phoneSelect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  border: 0;
+  cursor: pointer;
+  background: transparent;
+  appearance: none;
+  opacity: 1;
+}
+*/ #phoneSelect option::before {
+  content: "";
+}
+
+.phoneOption {
+  color: #222;
+  color: red;
+}
+
+.phoneCountryImg {
+  border: 0;
+  height: 14px;
+  width: 20px;
+}
+
+.phoneInputCountryImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.phoneSvg {
+  height: 20px;
+  padding-left: 8px;
+  width: 20px;
+}
+
+.flag {
+  display: none;
+}
+
+#cellPhone {
+  border: 0;
+  padding: 0 0 0 8px;
+  flex: 1 1;
+  min-width: 0;
+}
+
+.phoneP {
+  margin-top: 4px;
+  color: #707070;
+  padding: 0;
+  text-transform: none;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+/*checkbox*/
+.checkboxContent {
+  position: relative;
+  width: 100%;
+}
+
+.checkBox {
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+  position: relative;
+}
+
+#checkboxInput {
+  top: 50%;
+  transform: translateY(-50%);
+  height: 20px;
+  width: 20px;
+  left: 0;
+  /* opacity: 0;*/
+  position: absolute;
+  cursor: pointer;
+}
+
+.checkboxLabel {
+  padding-left: 28px;
+  margin-left: 0 !important;
+}
+
+.checkboxP {
+  padding-left: 24px;
+}
+
+.checkSpan {
+  font-weight: 400;
+  text-transform: none;
+  font-size: 13px;
+  text-align: left;
+}
+
+.checkboxBtnP {
+  margin: 16px 0;
+  line-height: 1.45;
+  font-weight: 400;
+  text-transform: none;
+  color: #707070;
+  font-size: 12px;
+}
+
+.checkboxBtn {
+  min-height: auto;
+  text-decoration: underline;
+  display: inline;
+  padding: 0;
+  line-height: 1.23;
+  font-weight: 400;
+  text-transform: none;
+  border: none;
+  color: #707070;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/*big btn*/
+.btn {
+  border-radius: 0;
+  box-shadow: 0 0 0 0 #000;
+  width: 100%;
+  min-height: 48px;
+  padding: 16px;
+  text-transform: none;
+  font-weight: 500;
+  letter-spacing: normal;
+  line-height: 1;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.memberBtn {
+  margin-top: 16px;
+  background-color: #222;
+  color: #fff;
+  border: none;
+}
+
+.loginBtn {
+  background-color: #faf9f8;
+  border: 1px solid black;
+}
+
+.logInSection {
+  display: grid;
+  margin-top: auto;
+  grid-gap: 16px;
+  padding: 32px 0;
+  padding-top: 16px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.footer {
+  grid-area: footer;
+  width: 100%;
+  background-color: #7f5327;
+  display: grid;
+  grid-template-columns: 10% 20% 20% 20% 20% 10%;
+  grid-template-rows: 100%;
+  grid-gap: 5px;
+  padding: 28px 0;
+  justify-items: center;
+  align-items: center;
+  bottom: 0;
+  box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.box {
+  grid-column-start: 2;
+  grid-column-end: 5;
+  width: 100%;
+  height: 100%;
+  padding: 34px;
+  display: flex;
+  justify-content: center;
+}
+
+.box1 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.box2 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+
+.box3 {
+  grid-column-start: 4;
+  grid-column-end: 5;
+}
+
+.box4 {
+  grid-column-start: 5;
+  grid-column-end: 6;
+}
+
+.boxContent {
+  font-size: 18px;
+  top: 0;
+}
+
+.footerListTitle {
+  padding-bottom: 6px;
+}
+
+.footerList {
+  width: 100%;
+}
+
+.footerListItem {
+  padding-bottom: 6px;
+  list-style-type: none;
+}
+
+.footerLink {
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+.footerLink:hover {
+  color: black;
+  transform: scale(1.1);
+}

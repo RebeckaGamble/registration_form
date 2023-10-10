@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registreringsformulär</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="blurBackground"></div>
+    <div class="content">
+      <header class="header">
+        <h1 class="title">Registreringsformulär</h1>
+        <button
+          class="openNewMemberBtn"
+          type="button"
+          title="Open new member button"
+          id="openNewMemberBtn"
+        >
+          Bli medlem
+        </button>
+      </header>
+      <div class="contentSection">
+        <p class="">Klicka på knappen för att öppna formuläret</p>
+      </div>
+
+      <!--form content-->
+      <div class="formContent" id="newMemberMenu">
+        <header class="userFormHeader">
+          <h2 class="userFormTitle">Bli medlem</h2>
+          <button
+            type="button"
+            class="closeMenuBtn"
+            title="close mod"
+            id="closeMenuBtn"
+          >
+            <svg class="closeModSvg">
+              <path
+                d="M12 11.29L21.29 2l.71.71L12.71 12 22 21.29l-.71.71L12 12.71 2.71 22 2 21.29 11.29 12 2 2.71 2.71 2 12 11.29z"
+              ></path>
+            </svg>
+          </button>
+        </header>
+        <div class="userFormContent">
+          <p class="userFormText">
+            Bli medlem - missa inte erbjudanden, rabatter och bonuscheckar
+          </p>
+          <!--form-->
+          <form action="https://httpbin.org/anything" class="userForm">
+            <!--mejl-->
+            <div class="mail">
+              <div class="formLabel">
+                <label class="label labelReq" for="mail">E-postadress</label>
+              </div>
+              <div class="formInputBox">
+                <div class="formInput">
+                  <input
+                    class="input"
+                    id="mail"
+                    type="email"
+                    name="E-post"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <!--password-->
+            <div class="password">
+              <div class="formLabel">
+                <label class="label labelReq" for="togglePassword"
+                  >Skapa ett lösenord</label
+                >
+              </div>
+              <div class="formInputBox">
+                <div class="formInput">
+                  <input
+                    class="input"
+                    id="togglePassword"
+                    type="password"
+                    oninput="validatePassword(this)"
+                    required
+                  />
+                  <button
+                    type="button"
+                    class="formInputBtn"
+                    title="show/hide password"
+                    onclick="togglePasswordVisibility()"
+                  >
+                    <span class="btnText" id="toggleText"> Visa </span>
+                  </button>
+                </div>
+                <div class="passwordReq">
+                  <span class="passSpan">8 tecken</span>
+                  <span class="passSpan">1 liten bokstav </span>
+                  <span class="passSpan">1 stor bokstav</span>
+                  <span class="passSpan">1 siffra</span>
+                </div>
+              </div>
+            </div>
+            <!--born-->
+            <div class="">
+              <div class="formLabel">
+                <label class="label labelReq" for="dateOfBirth"
+                  >Födelsedatum</label
+                >
+              </div>
+              <div class="formInputBox">
+                <div class="dateOfBirth">
+                  <input
+                    class="inputSmall"
+                    type="text"
+                    placeholder="åååå"
+                    name="År"
+                    required
+                  />
+                  <span>-</span>
+                  <input
+                    class="inputSmall"
+                    type="text"
+                    placeholder="mm"
+                    name="Månad"
+                    required
+                  />
+                  <span>-</span>
+                  <input
+                    class="inputSmall"
+                    type="text"
+                    placeholder="dd"
+                    name="Dag"
+                    required
+                  />
+                </div>
+              </div>
+              <span class="passSpan"
+                >Vi vill ge dig en särskild överraskning på din
+                födelsedag!</span
+              >
+            </div>
+            <!--fav department-->
+            <div class="departmentContainer">
+              <div class="departemnt">
+                <p class="departmentText">
+                  <span class="departmentSpan"
+                    >Vilken avdelning är du mest intresserad av?</span
+                  >
+                </p>
+                <div class="departemntContent">
+                  <div class="option optionOne">
+                    <label for="woman">Kvinna</label>
+                    <div class="departmentInput">
+                      <input
+                        type="radio"
+                        id="woman"
+                        value="Woman"
+                        name="Kvinna"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="option optionTwo">
+                    <label for="man">Man</label>
+                    <div class="departmentInput">
+                      <input type="radio" id="man" value="Man" name="Man" />
+                    </div>
+                  </div>
+
+                  <div class="option optionThree">
+                    <label for="child">Barn</label>
+                    <div class="departmentInput">
+                      <input
+                        type="radio"
+                        id="child"
+                        value="Child"
+                        name="Barn"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="option optionFour">
+                    <label for="home">Hem</label>
+                    <div class="departmentInput">
+                      <input type="radio" id="homme" value="Home" name="Hem" />
+                    </div>
+                  </div>
+
+                  <div class="option optionFive">
+                    <label for="beauty">Skönhet</label>
+                    <div class="departmentInput">
+                      <input
+                        type="radio"
+                        id="beauty"
+                        value="Beauty"
+                        name="Skönhet"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="departmentText">
+                <label for="other" class="departmentSpan">Annat:</label>
+              </p>
+              <textarea
+                name="other"
+                id="other"
+                rows="5"
+                placeholder="Skriv.."
+                maxlength="500"
+              ></textarea>
+            </div>
+
+            <!--select-->
+              <div>
+                <button
+                  class="openMenuBtn"
+                  type="button"
+                  title="Open extra menu button"
+                  id="toggleMenuBtn"
+                >
+                  <div class="openMenuBtnContent" id="toggleMenu">
+                    <span class="openMenuBtnSpan">Lägg till mer & få mer</span>
+                    <svg class="openSvg">
+                      <path
+                        d="M12 14.9l4.95-4.95.707.707-4.95 4.95-.707.707-5.657-5.657.707-.707L12 14.9z"
+                      ></path>
+                    </svg>
+                  </div>
+                </button>
+                <!--open menu-->
+                <div class="extraMenu" id="extraMenuHidden">
+                  <div class="extraMenuContent">
+                    <div>
+                      <p class="extraMenuText">
+                        Visste du att om du lägger till lite mer information
+                        nedan får du fler poäng samt en personligare upplevelse?
+                        <br />
+                        Bra, eller hur?
+                      </p>
+                      <!--firstname-->
+                      <div>
+                        <div class="formLabel">
+                          <label class="label" for="firstName">Förnamn</label>
+                        </div>
+                        <div class="formInputBox">
+                          <div class="formInput">
+                            <input
+                              class="input"
+                              type="text"
+                              id="firstName"
+                              name="Förnamn"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <!--lastname-->
+                      <div>
+                        <div class="formLabel">
+                          <label class="label" for="lastName">Efternamn</label>
+                        </div>
+                        <div class="formInputBox">
+                          <div class="formInput">
+                            <input
+                              class="input"
+                              type="text"
+                              id="lastName"
+                              name="Efternamn"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <!--gender-->
+                      <div class="">
+                        <div class="formLabel">
+                          <label class="label" for="gender">Kön</label>
+                        </div>
+                        <div class="formSelectBox">
+                          <div class="">
+                            <select
+                              type="dropdown"
+                              class="formSelect"
+                              name="gender"
+                              id="gender"
+                            >
+                              <option>Välj kön</option>
+                              <option value="woman" name="Kvinna">
+                                Kvinna
+                              </option>
+                              <option value="man" name="Man">Man</option>
+                              <option value="other" name="Annat">
+                                Vill inte uppge
+                              </option>
+                              <svg class="selectSvg">
+                                <path
+                                  d="M12 14.9l4.95-4.95.707.707-4.95 4.95-.707.707-5.657-5.657.707-.707L12 14.9z"
+                                ></path>
+                              </svg>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <!--zip code-->
+                      <div>
+                        <div class="formLabel">
+                          <label class="label" for="zip">Postnummer</label>
+                        </div>
+                        <div class="formInputBox">
+                          <div class="formInput">
+                            <input
+                              class="input"
+                              type="text"
+                              id="zip"
+                              name="zip"
+                              maxlength="5"
+                              oninput="validateZip(this)"
+                            />
+                          </div>
+                          <div id="zipError"></div>
+                        </div>
+                      </div>
+
+                      <!--phone-->
+                      <div class="formInputBox">
+                        <div class="phoneNr">
+                          <label class="label" for="phone">Telefon</label>
+                        </div>
+                        <div class="formInputBox">
+                          <div class="phoneNrContent">
+                            <div class="phoneInput">
+                              <div class="phoneSelectOne">
+                                <select
+                                  class="phoneSelect"
+                                  name="landcode"
+                                  id="phoneSelect"
+                                >
+                                  <option value=""></option>
+                                  <option
+                                    class="phoneOption"
+                                    value="SW"
+                                    name="+46"
+                                  >
+                                    Sverige
+                                  </option>
+                                  <option
+                                    class="phoneOption"
+                                    value="EN"
+                                    name="+44"
+                                  >
+                                    England
+                                  </option>
+                                </select>
+                                <div class="phoneCountryImg">
+                                  <img
+                                    class="phoneInputCountryImg"
+                                    src="/images/sweden.png"
+                                    alt="Sweden"
+                                  />
+                                </div>
+                                <!-- 
+                                <img
+                                  class="phoneSvg flag"
+                                  id="swedenFlag"
+                                  src="/images/sweden.png"
+                                  alt="Svenska flaggan"
+                                />
+
+                                <img
+                                  class="phoneSvg flag"
+                                  id="englandFlag"
+                                  src="/images/england.svg"
+                                  alt="Engelska flaggan"
+                                />
+                                -->
+                              </div>
+                              <input
+                                id="cellPhone"
+                                type="text"
+                                value="+46"
+                                name="telefon"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <p class="phoneP">
+                          <span class="passSpan">Exempel: 7XXXXXXXX</span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+            <!--Checkbox-->
+            <div class="formInputBox">
+              <div class="checkboxContent">
+                <div class="checkBox">
+                  <input type="checkbox" id="checkboxInput" />
+                  <label class="checkboxLabel" for="checkboxInput">
+                    <span class="checkSpan"
+                      >Ja, tack. Skicka mig erbjudanden, stiluppdateringar och
+                      inbjudningar till speciella medlemsevent.</span
+                    >
+                  </label>
+                </div>
+              </div>
+            </div>
+            <p class="checkboxP">
+              <span class="checkSpan">
+                Skulle du vilja ha en snyggare inkorg? Inga problem, det är bara
+                att prenumerera på vårt nyhetsbrev. Få reda på vad som är inne
+                och vad som händer i mode-, skönhets- och heminredningsvärlden.
+                Dessutom får du bonusrabatter, födelsedagserbjudanden och
+                inbjudningar till medlemsunika event – direkt till din inkorg!
+              </span>
+            </p>
+            <p class="checkboxBtnP">
+              Genom att klicka på ”Bli medlem” godkänner jag ***
+              <button class="checkboxBtn" type="button">
+                allmänna villkor
+              </button>
+            </p>
+            <p class="checkboxBtnP">
+              För att ge dig en komplett medlemsupplevelse behandlar vi dina
+              personuppgifter i enlighet med ***
+              <button class="checkboxBtn" type="button">
+                integritesmeddelande
+              </button>
+            </p>
+            <button
+              class="memberBtn btn"
+              type="submit"
+              title="submit new member button"
+            >
+              <span>Bli medlem</span>
+            </button>
+            <div class="logInSection">
+              <button class="loginBtn btn" type="button" title="log in button">
+                <span>Logga in</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--footer-->
+      <footer class="footer">
+        <div class="box box1">
+          <div class="boxContent">
+            <h3 class="footerListTitle">Kontakt</h3>
+            <ul>
+              <li class="footerListItem">
+                <h4 class="footerListSubTitle">Adress</h4>
+                <span>Forshagagatan 29</span>
+                <span>123 31 Farsta</span>
+              </li>
+              <li class="footerListItem">
+                <h4 class="footerListSubTitle">Telefon</h4>
+                <span>08-649 72 17</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="box box2">
+          <div class="boxContent">
+            <h3 class="footerListTitle">Om oss</h3>
+            <ul>
+              <li class="footerListItem">
+                <a class="footerLink" href="/">Om oss</a>
+              </li>
+              <li class="footerListItem">
+                <h4 class="footerListSubTitle">Karriär</h4>
+                <a class="footerLink" href="/">Lediga jobb</a>
+              </li>
+              <li class="footerListItem">
+                <h4 class="footerListSubTitle">Våra butiker</h4>
+                <a class="footerLink" href="/">Hitta närmsta butik</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="box box3">
+          <div class="boxContent">
+            <h3 class="footerListTitle">Vanliga frågor</h3>
+            <ul>
+              <li class="footerListItem">
+                <a class="footerLink" href="/">FAQ</a>
+              </li>
+              <li class="footerListItem">
+                <a class="footerLink" href="/">Betalning</a>
+              </li>
+              <li class="footerListItem">
+                <a class="footerLink" href="/">Leverans</a>
+              </li>
+              <li class="footerListItem">
+                <a class="footerLink" href="/">Retur/Reklamation</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="box box4">
+          <div class="boxContent">
+            <h3 class="footerListTitle">Följ oss</h3>
+            <ul class="footerList">
+              <li class="footerListItem">
+                <a class="footerLink" href="/">Facebook</a>
+              </li>
+              <li class="footerListItem">
+                <a class="footerLink" href="/">Instagram</a>
+              </li>
+              <li class="footerListItem">
+                <a class="footerLink" href="/">Youtube</a>
+              </li>
+              <li class="footerListItem">
+                <a class="footerLink" href="/">Tiktok</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>
